@@ -1,7 +1,7 @@
-const Link = () => {
+const Link = (props) => {
   return (
     <>
-      <a href="">Esqueceu a Senha?</a>
+      <a href="#">{props.texto}</a>
     </>
   );
 };
