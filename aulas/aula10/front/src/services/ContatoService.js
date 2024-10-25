@@ -1,8 +1,17 @@
 import axios from "axios";
 
-const uri = import.meta.env.API_URL;
+const url = import.meta.env.VITE_API_URL;
 
-const BuscarTodos = () => {};
+const BuscarTodos = () => {
+  return axios
+  .get(url)
+  .then((response) => {
+    return {sucesso: true, dados: response.data};
+  })
+  .catch((error) => {
+    return {sucesso: false, mensagem: error.message};
+  })
+};
 
 const Buscar = (id) => {};
 
@@ -19,6 +28,15 @@ const Adicionar = (contato) => {
 
 const Atualizar = (contato) => {};
 
-const Remover = (id) => {};
+const Remover = (id) => {
+  return axios
+  .delete(`${url}/${id}`)
+  .then((response => {
+    return { sucesso: true, dados: response.data };
+  }))
+  .catch((error) => {
+    return { sucesso: false, mensagem: error.message };
+  })
+};
 
 export { BuscarTodos, Buscar, Adicionar, Atualizar, Remover };
