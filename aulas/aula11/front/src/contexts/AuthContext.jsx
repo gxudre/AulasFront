@@ -8,10 +8,15 @@ const AuthProvider = (props) => {
     const [usuario, setUsuario] = useState({
         email: null, logado: false, token: null,
     })
+
+    
     
     const login = (dados) => {
         if(dados.email === "fulano@iesb.br" && dados.senha === "abcd1234"){
-            setUsuario({email : dados.email, logado: true, token: '1a2b3c4d',})
+            setUsuario({email : dados.email, logado: true, token: '1a2b3c4d',});
+            return "";
+        }else{
+          return "Login Inválido";
         }
     }
     
